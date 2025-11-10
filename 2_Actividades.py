@@ -76,3 +76,6 @@ if st.button("💾 Guardar registro"):
             st.success("✅ Registros guardados correctamente.")
         except Exception as e:
             st.error(f"❌ Error al guardar los datos: {e}")
+
+with engine.connect() as conn:
+    st.write("✅ Conectado correctamente a la base de datos")
