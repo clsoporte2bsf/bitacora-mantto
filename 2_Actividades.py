@@ -49,7 +49,7 @@ for act in actividades:
     st.markdown(f"**{act}**")
     col1, col2 = st.columns([1, 2])
     with col1:
-        verificacion = st.selectbox("", ["Si", "No"], key=act)
+        verificacion = st.selectbox("", ["No", "Si"], key=act)
     with col2:
         observaciones = st.text_input("Observaciones", key=act+"_obs")
     
