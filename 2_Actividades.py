@@ -78,4 +78,4 @@ if st.button("💾 Guardar registro"):
             st.error(f"❌ Error al guardar los datos: {e}")
 
 with engine.connect() as conn:
-    st.write("✅ Conectado correctamente a la base de datos")
+    st.write("✅")
