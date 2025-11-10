@@ -24,7 +24,7 @@ actividades = [
     "05. Revisar que equipos de filtrado funcionen bien",
     "06. Revisar equipos de calentamiento en rangos",
     "07. Limpieza con redes en albercas",
-    "08. Talado de muros y/o pisos en albercas y/o jacuzzi (s)",
+    "08. Tallado de muros y/o pisos en albercas y/o jacuzzi (s)",
     "09. Realizado de limpieza de cenefas en albercas y/o jacuzzi (s)",
     "10. Realizado de aspirado de albercas y/o jacuzzi (s)",
     "11. Limpieza de trampas de pelo en albercas y/o jacuzzi (s)",
