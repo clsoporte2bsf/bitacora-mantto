@@ -45,6 +45,11 @@ if submit:
 
         nuevo_registro.to_sql("bitacora_albercas", engine, if_exists="append", index=False)
         st.success("✅ Registro guardado exitosamente.")
+        
+        # --- RESETEAR FORMULARIO ---
+        for key, value in st.session_state.form_values.items():
+            st.session_state[key] = value
+            
     except Exception as e:
         st.error(f"❌ Error al guardar: {e}")
 
