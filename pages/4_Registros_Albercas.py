@@ -4,18 +4,10 @@ from sqlalchemy import create_engine, text
 from datetime import date
 from datetime import datetime
 
+# --- CONEXIÓN A LA BASE DE DATOS (usando secrets) ---
+engine = create_engine(st.secrets["DB_CONNECTION"])
 
-# --- CONEXIÓN A LA BD ---
-DB_USER = "postgres"
-DB_PASSWORD = "1234"
-DB_HOST = "localhost"
-DB_PORT = "5432"
-DB_NAME = "parametros_alberca"
-
-engine = create_engine(
-    f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
-)
-
+# Configuracion de la pagina
 st.set_page_config(page_title="Registros de Calderas", page_icon="📋")
 st.header("📘 Historial de parámetros de albercas y cuerpos de agua")
 
