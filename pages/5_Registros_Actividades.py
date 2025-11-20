@@ -15,7 +15,7 @@ fecha = st.date_input("Fecha", value=date.today())
 
 # Obtener operadores únicos de la tabla
 try:
-    df_op = pd.read_sql("SELECT DISTINCT operador FROM verificaciones_alberca ORDER BY operador", engine)
+    df_op = pd.read_sql("SELECT DISTINCT operador FROM validacion_alberca ORDER BY operador", engine)
     lista_operadores = ["(Todos)"] + df_op["operador"].tolist()
 except:
     lista_operadores = ["(Todos)"]
@@ -27,7 +27,7 @@ if st.button("🔍 Buscar registros"):
     try:
         query = """
             SELECT actividad, verificacion, observaciones, operador, fecha_registro
-            FROM verificaciones_alberca
+            FROM validacion_alberca
             WHERE DATE(fecha_registro) = :fecha
         """
         params = {"fecha": fecha}
