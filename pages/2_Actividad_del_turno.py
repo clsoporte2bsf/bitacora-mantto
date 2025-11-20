@@ -4,15 +4,8 @@ from datetime import datetime
 from sqlalchemy import create_engine
 from sqlalchemy import create_engine, text
 
-# CONFIGURACIÓN DE CONEXIÓN A BASE DE DATOS
-
-DB_USER = "postgres"
-DB_PASSWORD = "1234"
-DB_HOST = "localhost"
-DB_PORT = "5432"
-DB_NAME = "parametros_alberca"
-
-engine = create_engine(f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}")
+# --- CONEXIÓN A LA BASE DE DATOS (usando secrets) ---
+engine = create_engine(st.secrets["DB_CONNECTION"])
 
 # CONFIGURACIÓN DE LA PÁGINA
 
