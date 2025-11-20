@@ -3,14 +3,8 @@ import pandas as pd
 from datetime import date
 from sqlalchemy import create_engine, text
 
-# --- CONEXIÓN ---
-DB_USER = "postgres"
-DB_PASSWORD = "1234"
-DB_HOST = "localhost"
-DB_PORT = "5432"
-DB_NAME = "parametros_alberca"
-
-engine = create_engine(f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}")
+# --- CONEXIÓN A LA BASE DE DATOS (usando secrets) ---
+engine = create_engine(st.secrets["DB_CONNECTION"])
 
 # --- CONFIGURACIÓN DE PÁGINA ---
 st.set_page_config(page_title="Bitácora de Actividades", page_icon="📋", layout="centered")
