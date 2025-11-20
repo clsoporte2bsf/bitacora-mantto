@@ -50,7 +50,6 @@ for act in actividades:
     with col2:
         observaciones = st.text_input("Observaciones", key=act+"_obs")
 
-    # ← ESTA PARTE FALTABA
     respuestas.append({
         "actividad": act,
         "verificacion": verificacion,
@@ -68,7 +67,7 @@ if st.button("💾 Guardar registro"):
             with engine.begin() as conn:
                 for r in respuestas:
                     conn.execute(text("""
-                        INSERT INTO verificaciones_alberca (actividad, verificacion, observaciones, operador)
+                        INSERT INTO validacion_alberca (actividad, verificacion, observaciones, operador)
                         VALUES (:actividad, :verificacion, :observaciones, :operador)
                     """), r)
 
