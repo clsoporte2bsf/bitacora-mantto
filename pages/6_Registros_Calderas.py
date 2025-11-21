@@ -11,7 +11,8 @@ st.header("📘 Hisorial de Registros de Calderas")
 
 # ------------------- FILTROS -------------------
 turno = st.selectbox("Turno", ["Turno Matutino", "Turno Vespertino"])
-caldera = st.selectbox("Caldera", ["Caldera 1", "Caldera 2", "Caldera 3"])
+calderas_lista = ["(Todos)", "Caldera 1", "Caldera 2", "Caldera 3"]
+caldera = st.selectbox("Caldera", calderas_lista)
 fecha = st.date_input("Fecha", value=date.today())
 
 # Obtener operadores únicos
@@ -30,10 +31,13 @@ if st.button("🔍 Buscar registros"):
             SELECT turno, caldera, actividad, observaciones, operador, fecha_registro
             FROM calderas
             WHERE turno = :turno
-              AND caldera = :caldera
-              AND DATE(fecha_registro) = :fecha
+            AND DATE(fecha_registro) = :fecha
         """
-        params = {"turno": turno, "caldera": caldera, "fecha": fecha}
+        params = {"turno": turno, "fecha": fecha}
+
+        if caldera != "(Todos)":
+            query += " AND caldera = :caldera"
+            params["caldera"] = caldera
 
         if operador != "(Todos)":
             query += " AND operador = :operador"
